@@ -1,0 +1,39 @@
+Đề: Viết hàm tìm 1 vị trí mà giá trị tại vị trí đó là giá trị nhỏ nhất trong mảng 1 chiều các số nguyên
+
+#include <iostream>
+using namespace std;
+#define Max 100
+
+void Input_arr(int arr[], int& n);
+int Pos_value_min(int arr[], int n);
+void Output_arr(int arr[], int n);
+
+int main() {
+	int n, arr[Max];
+	Input_arr(arr, n);
+	cout << "Vi tri co gia tri nho nhat la: " << Pos_value_min(arr, n);
+}
+
+void Input_arr(int arr[], int& n) {
+	cout << "Nhap so phan tu cua mang:"; cin >> n;
+	for (int i = 0; i < n; i++) {
+		cout << "Phan tu thu " << i << " la: "; cin>> arr[i];
+	}
+}
+
+void Output_arr(int arr[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << "Gia tri thu " << i << " la: " << arr[i];
+	}
+}
+
+int Pos_value_min(int arr[], int n) {
+	int pos=0, min=arr[0];
+	for (int i = 1; i < n; i++) {
+		if (arr[i] < min) {
+			min = arr[i];
+			pos = i;
+		}
+	}
+	return pos;
+}
